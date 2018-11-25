@@ -1,14 +1,17 @@
 #include <Wire.h>
-
+int pin = A0;
+int lux = 0;
 void setup() {
  Wire.begin(8);                /* join i2c bus with address 8 */
- Wire.onReceive(receiveEvent); /* register receive event */
+// Wire.onReceive(receiveEvent); /* register receive event */
  Wire.onRequest(requestEvent); /* register request event */
  Serial.begin(9600);           /* start serial for debug */
 }
 
 void loop() {
- delay(100);
+ delay(500);
+ lux = analogRead(pin);
+ Serial.println(lux);
 }
 
 // function that executes whenever data is received from master
@@ -22,5 +25,5 @@ void receiveEvent(int howMany) {
 
 // function that executes whenever data is requested from master
 void requestEvent() {
- Wire.write("Hello NodeMCU");  /*send string on request */
+ Wire.write("Light:sssssssssssssssssss ");  /*send string on request */
 }

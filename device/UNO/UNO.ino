@@ -1,44 +1,44 @@
 // Libraries
 #include <SoftwareSerial.h>
 #include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x3F, 16, 2);
+
 #include <dht.h>
 dht DHT;
-
-
 // Pin setup
-LiquidCrystal_I2C lcd(0x3F, 2,1,0,4,5,6,7,3, POSITIVE); // LCD
-#define DHT11_PIN 7																			// DHT
-const int ldrPin = A0;																	// LDR
-int moistPin = A1;																			// Soil Moisture
-SoftwareSerial s(5, 6);																	// Node MCU Serial Communication
 
-int tmp, lux, moist, hmd = 0;														// Initial variables for sensor
+#define DHT11_PIN 7                                      // DHT
+const int ldrPin = A0;                                  // LDR
+int moistPin = A1;                                      // Soil Moisture
+
+int tmp, lux, moist, hmd = 0;                           // Initial variables for sensor
+String light = "";
 
 /* Serial lists
- *	UNO Serial 115200
- *	Node Serial 9600
- */
+    UNO Serial 115200
+    Node Serial 9600
+*/
 
 void setup() {
-	// Pinsetup
-	pinMode(ldrPin, INPUT);
-	// DHT & Soil moisture sensore doesn't need pin setup
-	
+  // Pinsetup
+  pinMode(ldrPin, INPUT);
+  // DHT & Soil moisture sensore doesn't need pin setup
+
   // Own Serial
-  Serial.begin(115200);
+  Serial.begin(9600);
 
-  // NodeMCU Serial
-  s.begin(9600);
-
-	// Boot msg
+  // Boot msg
+  lcd.begin();
+  lcd.backlight();
   Serial.print("Device Booting");
-	lcd.print("Device Booting");
-  for(int i=0; i<5; i++){
+  lcd.print("Device Booting");
+
+  for (int i = 0; i < 5; i++) {
     Serial.print(".");
-		lcd.print(".");
+    lcd.print(".");
     delay(500);
   }
-	lcd.clear();
+  lcd.clear();
   Serial.println();
 }
 
@@ -47,59 +47,60 @@ void loop() {
   Temp();
   Moist();
   transmitter();
-	Print();
+  Print();
 }
 
-void Light(){
+void Light() {
   lux = analogRead(ldrPin); // read the value from the sensor
-  int ldrStatus= 0;
-  Serial.println("Light: "+ String(lux));
+  if(lux > 300){
+    light = "HIGH";
+  } else {
+    light = "LOW";
+  }
   return;
 }
 
-void Temp(){
+void Temp() {
   int chk = DHT.read11(DHT11_PIN);
   tmp = DHT.temperature;
-  Serial.println("Temp: "+String(tmp)+ String((char)223)+"C");
   hmd = DHT.humidity;
-  Serial.println("Humid: "+String(hmd)+ "%");
   return;
 }
 
-void Moist(){
-   moist= analogRead(moistPin);
-//   moist = map(moist,550,0,0,100);
-	 moist = (100 - ((moist/1023.00) *100);
-
-   Serial.println("Moist: "+String(moist)+"%");
+void Moist() {
+  moist = analogRead(moistPin);
+  //   moist = map(moist,550,0,0,100);
+  moist = (100 - ((moist / 1023.00) * 100));
 }
 
-void transmitter(){
-  String data = "h="+String(hmd)+"&m="+String(moist)+"&l="+String(lux)+"&t="+String(tmp)+"\n";
-  
-  int sz = data.length();
-  for (int i = 0; i < sz; i++) {
-    if (s.available() > 0) {
-      s.write(data[i]);
-      delay(10);
-    }
-    //  if(s.available()>0){
-    //    s.write("c");
-  }
+void transmitter() {
+  String data = "h=" + String(hmd) + "&m=" + String(moist) + "&l=" + String(light) + "&t=" + String(tmp) + "\n";
   Serial.println(data);
-  delay(500);
 }
-
-void Print(){
+void Print() {
+  Serial.println(Serial.readString());
   lcd.clear();
-//  lcd.print("Home Forestation!");
-  lcd.setCursor(0,0);
-	lcd.print("Hum: "+String(hmd)+"%; Soil="+String(moist)+"%");
-	Serial.println("Hum: "+String(hmd)+"%; Soil="+String(moist)+"%");
-	lcd.setCursor(0,1);
-	lcd.print("lght="+String(lux)+"; tmp="+String(tmp)+String((char)223)+"C");
-	Serial.println("lght="+String(lux)+"; tmp="+String(tmp)+String((char)223)+"C");
-
-//  BT.println(sen+": "+String(var)+" "+unit);
-  delay(2000);
+  lcd.setCursor(0, 0);
+  lcd.print("Eco Friend");
+  lcd.setCursor(0, 1);
+  lcd.print("Temperature:" + String(tmp) + ((char)223)+"c");
+  delay(1000);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Eco Friend");
+  lcd.setCursor(0,1);
+  lcd.print("Light: " + String(lux)+"("+light+")");
+  delay(1000);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Eco Friend");
+  lcd.setCursor(0, 1);
+  lcd.print("Humidity: " + String(hmd) + "%");
+  delay(1000);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Eco Friend");
+  lcd.setCursor(0,1);
+  lcd.print("Soil Moist: " + String(moist)+"%");
+  delay(1000);
 }

@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">EcoFriend</string>
-    <string name="title_home">Home</string>
-    <string name="title_search">Search</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_browser">Browser</string>
-    <string name="title_device">Device</string>
-    <string name="title_about">About</string>
-</resources>

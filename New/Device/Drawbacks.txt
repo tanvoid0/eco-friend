@@ -1,0 +1,2 @@
+only work with Digital pin in soil moisture sensor
+adjust resistance volume of sensor until the led turns on

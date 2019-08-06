@@ -1,0 +1,58 @@
+Soil Sensor
+	A0
+	+ve	-> 3.3V
+	-ve -> -ve
+	https://www.hackster.io/xxlukas84/capacitive-soil-moisture-sensor-v1-2-with-wemos-d1-lite-d63455
+
+BH1750 Light sensor
+	+ve -> 3.3, 5V (not sure)
+	-ve -> -ve
+	D3	-> SDA
+	D4	-> SCL
+	https://www.iotwithus.com/how-to-make-a-smart-light-sensor-using-a-nodemcu-arduino-board-and-the-bh1750-sensor-for-5/
+	For better code: https://github.com/claws/BH1750/blob/master/examples/BH1750advanced/BH1750advanced.ino
+
+DHT11 Sensor
+	1 -> +ve	-> 3.3v
+	2 -> D4
+	3 -> -ve 	-> -ve
+
+	Code: 
+		#include "DHT.h"        // including the library of DHT11 temperature and humidity sensor
+		#define DHTTYPE DHT11   // DHT 11
+
+		#define dht_dpin D6
+		DHT dht(dht_dpin, DHTTYPE); 
+		void setup(void)
+		{ 
+		  dht.begin();
+		  Serial.begin(9600);
+		  Serial.println("Humidity and temperature \n\n");
+		   Serial.println("==========================================");
+		  delay(700);
+
+		}
+		void loop() {
+		    float h = dht.readHumidity();
+		    float t = dht.readTemperature();         
+		    Serial.print("Current humidity = ");
+		    Serial.print(h);
+		    Serial.print("%  ");
+		    Serial.print("temperature = ");
+		    Serial.print(t); 
+		    Serial.println("C  ");
+		  delay(800);
+		}
+
+		Link from: https://www.hackster.io/rajthavti/dht11-sensor-interfacing-with-nodemcu-086762
+		
+	Required Libraries:
+		Adafruit_Sensor-master
+		DHT_sensor_library
+		Link from : https://roboindia.com/tutorials/dht11-nodemcu-arduino/
+
+	Default Reading: H: 95%, Temp: 31C
+
+	https://www.hackster.io/rajthavti/dht11-sensor-interfacing-with-nodemcu-086762
+
+	https://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/

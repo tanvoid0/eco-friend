@@ -1,0 +1,6 @@
+Pin:
+	D0
+Issues: 
+	getMinimumSamplingPeriod -> delay creates timeout issue between +(106). Below this range, there seems an error
+
+Link: https://circuits4you.com/2019/01/25/interfacing-dht11-with-nodemcu-example/

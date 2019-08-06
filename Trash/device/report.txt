@@ -1,0 +1,6 @@
+*soil moisture sensor is corrutted due with salt
+*Gives corrupted data '⸮' while sending to nodemcu
+*Unknown ? replacemant instead of & in recieve data stream of serial communication
+*unknown changing value for moisture & light
+*broken wires (solved with multimeter)
+*

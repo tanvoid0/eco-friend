@@ -2,7 +2,7 @@
 
 dht DHT;
 
-#define DHT11_PIN 6
+#define DHT11_PIN 7
 
 void setup(){
   Serial.begin(9600);
@@ -15,5 +15,5 @@ void loop()
   Serial.println(DHT.temperature);
   Serial.print("Humidity = ");
   Serial.println(DHT.humidity);
-  delay(1103);
+  delay(1100);
 }

@@ -1,0 +1,9 @@
+VCC  <-> 3V3 [grey]
+  GND  <-> Gnd [purple]
+  SCL  <-> D1  [blue]
+  SDA  <-> D2  [green]
+  ADDR <-> RX  [yellow]
+  
+Tutorial: https://www.youtube.com/watch?v=kd2bvidS7XA 
+Also,
+	The code is from File->examples->bh1750fvi->simple

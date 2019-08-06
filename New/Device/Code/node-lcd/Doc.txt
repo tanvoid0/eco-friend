@@ -1,0 +1,5 @@
+Icon usage:
+	convert image to bitmap: https://image.online-convert.com/convert-to-bmp
+	bitmap to c array:
+Link:
+	https://www.robot-r-us.com/vmchk/sensor-water-/-moisture/analog-capacitive-soil-moisture-sensor-corrosion-resistant.html

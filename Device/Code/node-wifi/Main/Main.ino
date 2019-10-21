@@ -60,7 +60,7 @@ void loop() {
   //Post Data
   postData = "status=" + ADCData + "&station=" + station ;
   
-  http.begin(host+"api/");              //Specify request destination
+  http.begin("http://192.168.0.113/api/logger");              //Specify request destination
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
 
   int httpCode = http.POST(postData);   //Send the request

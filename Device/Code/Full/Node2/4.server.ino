@@ -69,7 +69,7 @@ void POST_REQUEST(){
   host = "http://djangpi.herokuapp.com/api";
   String address = host + url; 
   
-  postData = "light="+String(lux)+"&temperature="+String(temperature)+"&humidity="+String(humidity)+"&soil="+mRes+"&moisture="+mVal+"&remarks=null/";
+  postData = "light="+String(lux)+"&temperature="+String(temperature)+"&humidity="+String(humidity)+"&soil="+mRes+"&moisture="+mVal+"&remarks=null&alive="+btn+"/";
   http.begin(address); 
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   int httpCode = http.POST(postData); 

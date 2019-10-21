@@ -18,7 +18,8 @@ void SENSOR_DISPLAY(){
         String("Temp: ")+String(temperature)+String("C\n")+
         String("Humd: ")+String(humidity)+String(" %\n")+
         String("Soil: ")+String(mRes)+String("\n")+
-        String("Mois: ")+String(mVal);
+        String("Mois: ")+String(mVal)+String("\n")+
+        String("live: ")+String(btn)+String("\n");
   Serial.println(output);
     
   display.clearDisplay();

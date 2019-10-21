@@ -1,6 +1,7 @@
 void setup() 
 {
   Serial.begin(115200);
+  pinMode(btnPin, INPUT);
   LCD_SETUP();
   // Sensors initialize
   LightSensor.begin();  

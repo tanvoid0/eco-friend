@@ -50,7 +50,7 @@ const int AirValue = 890;   //you need to replace this value with Value_1
 const int WaterValue = 470;  //you need to replace this value with Value_2
 int intervals = (AirValue - WaterValue)/3;
 int mPin = A0;
-
+int btnPin = D8;
 
 // DHT
 DHTesp dht;
@@ -80,3 +80,4 @@ String host = "http://djangpi.herokuapp.com/api";
 
 String url = "/datalogs/";
 int httpCode;
+bool btn = true;

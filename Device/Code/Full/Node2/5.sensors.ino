@@ -21,3 +21,7 @@ void MOIST_INPUT(){
 void LIGHT_INPUT(){
   lux = LightSensor.GetLightIntensity();
 }
+
+void PLANT_ALIVE(){
+  btn = digitalRead(btnPin)== HIGH ? true : false;
+}

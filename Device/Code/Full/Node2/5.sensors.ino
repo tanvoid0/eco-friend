@@ -24,4 +24,9 @@ void LIGHT_INPUT(){
 
 void PLANT_ALIVE(){
   btn = digitalRead(btnPin)== HIGH ? true : false;
+  if(btn){
+    aliveState = "true";
+  } else {
+    aliveState = "false";
+  }
 }

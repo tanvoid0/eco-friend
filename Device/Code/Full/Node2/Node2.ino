@@ -76,8 +76,9 @@ float humidity, temperature = 0;
 
 // WiFi vars
 String ssid, password, payload, srvr_api;
-String host = "http://djangpi.herokuapp.com/api";
-
-String url = "/datalogs/";
+//String host = "http://djangpi.herokuapp.com/api";
+String host = "http://192.168.0.104:8000/api";
+String url = "/datalog/";
 int httpCode;
 bool btn = true;
+String aliveState = "true";

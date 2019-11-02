@@ -1,6 +1,6 @@
 // Set Static ip: netsh interface ip set address name="Ethernet" static 192.168.0.111 255.255.255.0 192.168.0.1
 void SERVER_POST(){
-  GET_REQUEST();
+  POST_REQUEST();
  
 }
 
@@ -66,13 +66,14 @@ void POST_REQUEST(){
   
   
   HTTPClient http; 
-  host = "http://djangpi.herokuapp.com/api";
+//  host = "http://djangpi.herokuapp.com/api";
   String address = host + url; 
   
-  postData = "light="+String(lux)+"&temperature="+String(temperature)+"&humidity="+String(humidity)+"&soil="+mRes+"&moisture="+mVal+"&remarks=null&alive="+btn+"/";
+  postData = "light="+String(lux)+"&temperature="+String(temperature)+"&humidity="+String(humidity)+"&soil="+mRes+"&moisture="+mVal+"&remarks=null&alive="+aliveState+"&plant_id=1";
+  Serial.println(postData);
   http.begin(address); 
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  int httpCode = http.POST(postData); 
+  httpCode = http.POST(postData); 
   Serial.println(httpCode); //Print HTTP return code 
   String payload = http.getString(); 
   Serial.println(payload); //Print request response payload 

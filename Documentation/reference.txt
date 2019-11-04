@@ -1,0 +1,12 @@
+•	Sabequn Nahar Mukti (2006), Study of Urban Forestry through Road Side Tree Plantation in Dhaka City (2006), BUET, Dhaka
+•	Baihaqi Siregar et al 2018, Soil Moisture Monitoring System using WirelessSensor Network, J. Phys.: Conf. Ser.1028 01205 https://iopscience.iop.org/article/10.1088/1742-6596/1028/1/012058 
+•	Kretschmar M and Welsby S 2005 Capacitive and Inductive Displacement Sensors Newnes (Burlington) Google Scholar
+•	Chen W 2013 Design and Deployment of A Wireless Sensor Network For The Monitoring of Plants (Harbin Institute of Technology) Disertation For The Master’s Degree in Engineering Google Scholar
+•	Adams J A 1986 Dirt. College Station Texas (Texas) Google Scholar
+•	Foth H D 1990 Fundamental of Soil Science (Michigan: Arcata Graphics Company) Google Scholar
+•	Susana R 2013 Perancangan dan Realisasi Sistem Monitoring Parameter Tanah Berbasis Jaringan Sensor Nirkabel Jurnal Informatika 1-11 Google Scholar
+•	Serrano J, Shahidian S and Marquez da Silva J 2014 Spatial and TemporalPatterns of Apparent Electrical Conductuvity : DUALEM vs. Veris Sensors for Monitoring Soil Properties MDPI International Journal 14 10024-10041 Google Scholar
+•	Stevanus and Setiadikarunia D. 2013 Alat Pengukur Kelembaban Tanah Berbasi Mikrokontroler PIC 16F84. Indonesian Journal of Applied Physics 36-46 Google Scholar
+•	Lee M H, Tsai D J and Lee C Y 2014 Applications of Soil Moisture Sensor with Elektrokinetic Ion Trap Mechanism. Hindawi Publishing Corporation TheScientific World Journal 14 1-8 Google Scholar
+•	Ryan Gill 2016 Hackster.io Plant Monitoring system Hackster.io
+•	Sreeram Sadasivam, Viswanath Vadhri and Supradha Ramesh 2015 Smart Plant Monitoring System Researchgate DOI: 10.13140/RG.2.1.2915.6563/1 ResearchGate.net
